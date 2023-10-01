@@ -1,0 +1,37 @@
+﻿@model CustomerViewModel
+@{
+    ViewData["Title"] = "UpdateCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Customer" asp-action="UpdateCustomer" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="CustomerID" />
+    <div>
+        <label>Müşteri Adı</label>
+        <input type="text" class="form-control" asp-for="CustomerName" />
+    </div>
+    <div>
+        <label>Müşteri Soyadı</label>
+        <input type="text" class="form-control" asp-for="CustomerSurname" />
+    </div>
+    <div>
+        <label>Müşteri TCKN:</label>
+        <input type="text" class="form-control" asp-for="CustomerTcID" />
+    </div>
+    <div>
+        <label>Müşteri Doğum Tarihi</label>
+        <input type="text" class="form-control" asp-for="CustomerBirthDate" value="@Model.CustomerBirthDate.ToShortDateString()" min="0" step="1" maxlength="11" />
+    </div>
+    <div>
+        <label>Müşteri Durumu</label>
+        <input type="radio" asp-for="CustomerStatus" value="true" />
+        <label for="CustomerStatusActive">Aktif</label>
+        <input type="radio" asp-for="CustomerStatus" value="false" />
+        <label for="CustomerStatusInactive">Pasif</label>
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+</form>
+

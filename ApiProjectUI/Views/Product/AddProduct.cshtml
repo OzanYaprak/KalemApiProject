@@ -1,0 +1,30 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "AddAdmin";
+}
+
+<form asp-controller="Product" asp-action="UpdateProduct" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label>Ürün Adı</label>
+        <input type="text" class="form-control" asp-for="ProductName" />
+    </div>
+    <div>
+        <label>Ürün Markası</label>
+        <input type="text" class="form-control" asp-for="ProductBrand" />
+    </div>
+    <div>
+        <label>Son Kullanma Tarihi</label>
+        <input type="text" class="form-control" asp-for="ProductExpDate" />
+    </div>
+    <div>
+        <label>Ürün Durumu</label>
+        <input type="radio" asp-for="ProductStatus" value="true" />
+        <label for="CustomerStatusActive">Aktif</label>
+        <input type="radio" asp-for="ProductStatus" value="false" />
+        <label for="CustomerStatusInactive">Pasif</label>
+    </div>
+    <div>
+        <button class="btn btn-warning">Ekle</button>
+    </div>
+</form>

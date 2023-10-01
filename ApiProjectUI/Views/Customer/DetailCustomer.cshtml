@@ -1,0 +1,35 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "DetailAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Customer" asp-action="DetailCustomer" method="post">
+    <div>
+        <label>Müşteri Adı</label>
+        <input type="text" class="form-control" asp-for="CustomerName" disabled />
+    </div>
+    <div>
+        <label>Müşteri Soyadı</label>
+        <input type="text" class="form-control" asp-for="CustomerSurname" disabled />
+    </div>
+    <div>
+        <label>Müşteri TCKN:</label>
+        <input type="text" class="form-control" asp-for="CustomerTcID" disabled />
+    </div>
+    <div>
+        <label>Müşteri Doğum Tarihi</label>
+        <input type="text" class="form-control" asp-for="CustomerBirthDate" value="@Model.CustomerBirthDate.ToShortDateString()" disabled />
+    </div>
+    <div>
+        <label>Müşteri Durumu</label>
+        <input type="radio" asp-for="CustomerStatus" value="true" disabled />
+        <label for="CustomerStatusActive">Aktif</label>
+        <input type="radio" asp-for="CustomerStatus" value="false" disabled />
+        <label for="CustomerStatusInactive">Pasif</label>
+    </div>
+    <div>
+        <a asp-controller="Customer" asp-action="Index" class="btn btn-primary">Geri</a>
+    </div>
+</form>
+

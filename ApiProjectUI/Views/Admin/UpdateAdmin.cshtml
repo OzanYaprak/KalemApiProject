@@ -1,0 +1,33 @@
+﻿@model AdminViewModel
+@{
+    ViewData["Title"] = "UpdateAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Admin" asp-action="UpdateAdmin" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="AdminID" />
+
+    <label>Ad</label>
+    <input type="text" class="form-control" asp-for="Name" />
+
+    <br />
+
+    <label>Soyad</label>
+    <input type="text" class="form-control" asp-for="Surname" />
+
+    <br />
+
+    <label>Kullanıcı Adı</label>
+    <input type="text" class="form-control" asp-for="Username" />
+
+    <br />
+
+    <label>Şifre</label>
+    <input type="text" class="form-control" asp-for="Password" />
+
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+

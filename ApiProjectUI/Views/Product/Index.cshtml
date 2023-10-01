@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ProductViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-bordered">
+    <tr class="text-center">
+        <th>#</th>
+        <th>Ürün Adı</th>
+        <th>Ürün Markası</th>
+        <th>Ürün Durumu</th>
+        <th>Ürün SKT</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="text-center">
+            <th>@item.ProductID</th>
+            <td>@item.ProductName</td>
+            <td>@item.ProductBrand</td>
+            <td>
+                @if (item.ProductStatus)
+                {
+                    <span class="text-success">Aktif</span>
+                }
+                else
+                {
+                    <span class="text-danger">Pasif</span>
+                }
+            </td>
+            <td>@item.ProductExpDate.ToShortDateString()</td>
+            <td><a asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.ProductID" class="btn btn-danger">Sil</a></td>
+            <td><a asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@item.ProductID" class="btn btn-success">Güncelle</a></td>
+            <td><a asp-controller="Product" asp-action="DetailProduct" asp-route-id="@item.ProductID" class="btn btn-dark">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a asp-controller="Product" asp-action="AddProduct" class="btn btn-info text-white">Yeni Ürün Kaydı</a>
+

@@ -1,0 +1,41 @@
+﻿@model Admin
+@{
+    ViewData["Title"] = "DetailAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Admin" asp-action="UpdateAdmin" method="post">
+    <input type="hidden" asp-for="AdminID" />
+
+    <label class="mb-2">Ad</label>
+    <input type="text" class="form-control" asp-for="Name" disabled />
+
+    <br />
+
+    <label class="mb-2">Soyad</label>
+    <input type="text" class="form-control" asp-for="Surname" disabled/>
+
+    <br />
+
+    <label class="mb-2">Kullanıcı Adı</label>
+    <input type="text" class="form-control" asp-for="Username" disabled>
+
+    <br />
+
+    <label class="mb-2">Şifre</label>
+    <input type="text" class="form-control" asp-for="Password" disabled />
+
+    <br />
+
+    <label class="mb-2">Son Giriş Tarihi</label>
+    <input type="text" class="form-control" asp-for="LastLoginDate" disabled />
+
+    <br />
+
+    <label class="mb-2">Son Giriş IP</label>
+    <input type="text" class="form-control" asp-for="LastLoginIPNo" disabled />
+
+    <br />
+    <a asp-controller="Admin" asp-action="Index" class="btn btn-warning px-3">Geri</a>
+</form>
+

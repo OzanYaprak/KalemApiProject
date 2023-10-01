@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CustomerViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-bordered">
+    <tr class="text-center">
+        <th>#</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+        <th>Müşteri TCKN</th>
+        <th>Müşteri Durumu</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="text-center">
+            <th>@item.CustomerID</th>
+            <td>@item.CustomerName</td>
+            <td>@item.CustomerSurname</td>
+            <td>@item.CustomerTcID</td>
+            <td>
+                @if (item.CustomerStatus)
+                {
+                    <span class="text-success">Aktif</span>
+                }
+                else
+                {
+                    <span class="text-danger">Pasif</span>
+                }
+            </td>
+            <td><a asp-controller="Customer" asp-action="DeleteCustomer" asp-route-id="@item.CustomerID" class="btn btn-danger">Sil</a></td>
+            <td><a asp-controller="Customer" asp-action="UpdateCustomer" asp-route-id="@item.CustomerID" class="btn btn-success">Güncelle</a></td>
+            <td><a asp-controller="Customer" asp-action="DetailCustomer" asp-route-id="@item.CustomerID" class="btn btn-dark">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a asp-controller="Customer" asp-action="AddCustomer" class="btn btn-info text-white">Yeni Müşteri Kaydı</a>
+

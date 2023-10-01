@@ -1,0 +1,32 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "DetailAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <label>Ürün Adı</label>
+    <input type="text" class="form-control" asp-for="ProductName" disabled />
+</div>
+<div>
+    <label>Ürün Markası</label>
+    <input type="text" class="form-control" asp-for="ProductBrand" disabled />
+</div>
+<div>
+    <label>Ürün SKT</label>
+    <input type="text" class="form-control" asp-for="ProductExpDate" value="@Model.ProductExpDate.ToShortDateString()" disabled />
+</div>
+
+<div>
+    <label>Müşteri Durumu</label>
+    <input type="radio" asp-for="ProductStatus" value="true" disabled />
+    <label for="ProductStatusActive">Aktif</label>
+    <input type="radio" asp-for="ProductStatus" value="false" disabled />
+    <label for="ProductStatusInactive">Pasif</label>
+</div>
+<div>
+    <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Geri</a>
+</div>
+
+
